@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>假 AI 管理端</title>
+    <script>
+      // 防止深色模式闪烁：在 Vue 挂载前就把主题类加上
+      (function () {
+        try {
+          var t = localStorage.getItem('web.theme') || 'auto';
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (t === 'dark' || (t === 'auto' && prefersDark)) {
+            document.documentElement.classList.add('mdui-theme-dark');
+          } else if (t === 'light') {
+            document.documentElement.classList.add('mdui-theme-light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
